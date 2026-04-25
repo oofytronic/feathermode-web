@@ -81,11 +81,13 @@
   padding: 0;
 }
 
-html, body {
+html {
   height: 100%;
 }
 
 body {
+  height: 100vh;
+  height: 100dvh; /* accounts for mobile browser chrome */
   background: var(--bg);
   color: var(--ink);
   font-family: var(--body);
@@ -169,7 +171,7 @@ body {
 .stage {
   position: relative;
   z-index: 10;
-  min-height: 100vh;
+  height: 100%;          /* fills the 100dvh body exactly */
   display: grid;
   grid-template-rows: auto 1fr auto;
   padding: clamp(24px, 4vw, 56px) clamp(24px, 5vw, 72px);
@@ -211,6 +213,12 @@ body {
   text-align: center;
   gap: clamp(20px, 3vh, 40px);
   padding: 4vh 0;
+  overflow-y: auto;
+  scrollbar-width: none;   /* Firefox */
+}
+
+.hero::-webkit-scrollbar {
+  display: none;           /* Chrome/Safari */
 }
 
 .hero .eyebrow {
@@ -617,7 +625,27 @@ body {
 
 /* ---- Responsive ---- */
 @media (max-width: 640px) {
-  .top .meta-sub     { display: none; }
-  .bottom .right     { display: none; }
-  .signup-form       { min-width: 0; width: 100%; }
+  .top .meta-sub { display: none; }
+  .bottom .right { display: none; }
+  .signup-form   { min-width: 0; width: 100%; }
+
+  /* Collapse editorial left-offset so hero is readable on small screens */
+  [data-layout="editorial"] .hero {
+    padding-left: 0;
+    align-items: center;
+    text-align: center;
+  }
+  [data-layout="editorial"] .rule    { margin: 0 auto; }
+  [data-layout="editorial"] .manifesto { text-align: center; }
+  [data-layout="editorial"] .signup  { align-items: center; }
+}
+
+/* Tighten vertical rhythm on short viewports (landscape phone, etc.) */
+@media (max-height: 640px) {
+  .hero {
+    gap: clamp(10px, 2vh, 20px);
+    padding: 2vh 0;
+    justify-content: flex-start;
+  }
+  .rule { height: 36px; }
 }
