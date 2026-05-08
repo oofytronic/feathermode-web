@@ -75,7 +75,15 @@ form.addEventListener('submit', e => {
     return;
   }
 
-  form.innerHTML = '<div class="signup-success">Thank you. We\'ll be in touch.</div>';
-  hint.textContent = 'Your name is on the list.';
-  hint.style.color = 'var(--ink-faint)';
+  const body = new URLSearchParams({ 'form-name': 'landing-signup', Email: val }).toString();
+  fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body })
+    .then(() => {
+      form.innerHTML = '<div class="signup-success">Thank you. We\'ll be in touch.</div>';
+      hint.textContent = 'Your name is on the list.';
+      hint.style.color = 'var(--ink-faint)';
+    })
+    .catch(() => {
+      hint.textContent = 'Something went wrong. Please try again.';
+      hint.style.color = 'var(--accent)';
+    });
 });
