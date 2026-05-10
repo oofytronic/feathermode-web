@@ -544,6 +544,32 @@ body {
   transform: translateX(-50%) translateY(0);
 }
 
+/* Mobile-only trigger button (sun icon) — hidden on desktop */
+.palette-trigger {
+  display: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  place-items: center;
+  color: var(--ink-soft);
+  transition: color 300ms ease;
+  padding: 0;
+}
+
+.palette-trigger svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.palette-trigger:hover,
+.palette-switch.open .palette-trigger {
+  color: var(--ink);
+}
+
 /* Auto time-of-day toggle */
 .palette-auto {
   font-family: var(--display);
@@ -626,8 +652,12 @@ body {
 /* ---- Responsive ---- */
 @media (max-width: 640px) {
   .top .meta-sub { display: none; }
+  .top .meta     { font-size: 10px; letter-spacing: 0.1em; }
   .bottom .right { display: none; }
   .signup-form   { min-width: 0; width: 100%; }
+
+  /* Hide the decorative vertical rule between tagline and manifesto */
+  .rule { display: none; }
 
   /* Collapse editorial left-offset so hero is readable on small screens */
   [data-layout="editorial"] .hero {
@@ -635,9 +665,44 @@ body {
     align-items: center;
     text-align: center;
   }
-  [data-layout="editorial"] .rule    { margin: 0 auto; }
   [data-layout="editorial"] .manifesto { text-align: center; }
-  [data-layout="editorial"] .signup  { align-items: center; }
+  [data-layout="editorial"] .signup    { align-items: center; }
+
+  /* Mobile palette toggle: show only the sun trigger, reveal options on .open */
+  .palette-trigger {
+    display: grid;
+  }
+
+  .palette-switch {
+    flex-direction: column;
+    border-radius: 999px;
+    align-items: center;
+  }
+
+  .palette-switch.open {
+    border-radius: 14px;
+  }
+
+  .palette-switch .palette-btn,
+  .palette-switch .palette-auto {
+    display: none;
+  }
+
+  .palette-switch.open .palette-btn {
+    display: grid;
+  }
+
+  .palette-switch.open .palette-auto {
+    display: flex;
+    border-left: none;
+    border-top: 1px solid var(--field-border);
+    margin-left: 0;
+    margin-top: 0;
+    padding: 5px 12px;
+    height: auto;
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* Tighten vertical rhythm on short viewports (landscape phone, etc.) */
