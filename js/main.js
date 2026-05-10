@@ -58,6 +58,37 @@ setInterval(() => {
   if (!localStorage.getItem(STORAGE_KEY)) runAuto();
 }, 60 * 1000);
 
+// ---- Mobile palette trigger ----
+const triggerEl = document.getElementById('paletteTrigger');
+const switchEl  = document.getElementById('paletteSwitch');
+
+triggerEl.addEventListener('click', () => {
+  const isOpen = switchEl.classList.toggle('open');
+  triggerEl.setAttribute('aria-expanded', String(isOpen));
+});
+
+// Close panel when a palette option is chosen
+document.querySelectorAll('.palette-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    switchEl.classList.remove('open');
+    triggerEl.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Close panel when auto is chosen
+autoEl.addEventListener('click', () => {
+  switchEl.classList.remove('open');
+  triggerEl.setAttribute('aria-expanded', 'false');
+});
+
+// Close on tap outside the switcher
+document.addEventListener('click', e => {
+  if (!switchEl.contains(e.target)) {
+    switchEl.classList.remove('open');
+    triggerEl.setAttribute('aria-expanded', 'false');
+  }
+});
+
 // ---- Signup form ----
 const form = document.getElementById('signup');
 const emailInput = document.getElementById('email');
