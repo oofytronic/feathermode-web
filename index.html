@@ -1,161 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>feathermode — New Heights for the Written Word</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feathermode — Lighter-than-air &amp; aero sports for individuals</title>
+<meta name="description" content="Feathermode is a hub for lighter-than-air, paramotoring, and aero sports for individuals — products, publications, services, and events, all in one place.">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;1,300;1,400&family=Inter:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Work+Sans:wght@300;400;500&display=swap">
+<!-- Set palette before first paint to avoid a flash -->
+<script>
+(function () {
+  try {
+    var stored = localStorage.getItem('fm-theme');
+    var mode = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'parchment-dark' : 'parchment-light');
+    document.documentElement.setAttribute('data-palette', mode);
+  } catch (e) {}
+})();
+</script>
 
-  <link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 290 290'%3E%3Cpath fill='%2316446F' d='M168.4 79.1c54 0 98 43.9 98 98s-44 98-98 98-98-43.9-98-98 44-98 98-98zm0 14.4c-46.4 0-84 37.6-84 84s37.6 84 84 84 84-37.6 84-84-37.6-84-84-84z'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="css/style.css">
 </head>
+<body>
 
-<!--
-  data-palette: daylight | dusk | candlelight  (auto-set by time in main.js)
-  data-typepair: editorial | garamond | quiet
-  data-layout: editorial (left-aligned hero) — remove for centered
--->
-<body data-palette="candlelight" data-typepair="garamond" data-layout="editorial">
-
-  <!-- ── Ambient background layers ─────────────────────────── -->
-
-  <!-- Vignette + grain dots -->
-  <div class="grain" aria-hidden="true"></div>
-
-  <!-- Warm glow for candlelight palette -->
-  <div class="flame" aria-hidden="true"></div>
-
-  <!-- SVG fractal noise for paper-fiber texture -->
-  <svg class="fiber" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <filter id="fiberNoise">
-      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3"></feTurbulence>
-      <feColorMatrix values="0 0 0 0 0.15  0 0 0 0 0.12  0 0 0 0 0.08  0 0 0 0.5 0"></feColorMatrix>
-    </filter>
-    <rect width="100%" height="100%" filter="url(#fiberNoise)"></rect>
-  </svg>
-
-  <!-- Slowly drifting ink-wash ellipses -->
-  <div class="drift" aria-hidden="true">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <!-- ── Decorative sky layer ──────────────────────────────── -->
+  <div class="sky" aria-hidden="true">
+    <svg class="sky-glow" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <radialGradient id="washA" cx="50%" cy="50%" r="50%">
-          <stop offset="0%"   stop-color="currentColor" stop-opacity="0.18"></stop>
-          <stop offset="60%"  stop-color="currentColor" stop-opacity="0.04"></stop>
-          <stop offset="100%" stop-color="currentColor" stop-opacity="0"></stop>
+        <radialGradient id="glowA" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="currentColor" stop-opacity="0.16"/>
+          <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
         </radialGradient>
-        <filter id="blurA"><feGaussianBlur stdDeviation="40"></feGaussianBlur></filter>
       </defs>
-      <g style="color: var(--ink-faint)">
-        <ellipse class="wash-a" cx="200"  cy="220" rx="280" ry="80"  fill="url(#washA)" filter="url(#blurA)"></ellipse>
-        <ellipse class="wash-b" cx="1000" cy="600" rx="320" ry="120" fill="url(#washA)" filter="url(#blurA)"></ellipse>
-        <ellipse class="wash-a" cx="900"  cy="180" rx="200" ry="60"  fill="url(#washA)" filter="url(#blurA)" style="animation-delay: -12s"></ellipse>
-      </g>
+      <circle cx="920" cy="140" r="360" fill="url(#glowA)"/>
+      <circle cx="120" cy="620" r="300" fill="url(#glowA)"/>
+    </svg>
+    <svg class="flight-path" viewBox="0 0 600 300" preserveAspectRatio="none">
+      <path id="flightArc" d="M -20 260 C 160 260, 220 40, 460 60 S 640 140, 660 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 10" stroke-linecap="round"/>
+      <circle r="4" fill="currentColor">
+        <animateMotion dur="14s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#flightArc"/>
+        </animateMotion>
+      </circle>
     </svg>
   </div>
 
-  <!-- ── Page content ──────────────────────────────────────── -->
+  <!-- ── Header ────────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="#top" class="brand">
+        <svg width="26" height="26" viewBox="0 0 290 290" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M168.384 79.0842C222.446 79.0842 266.347 122.986 266.347 177.047C266.347 231.109 222.446 275 168.384 275C114.323 275 70.4209 231.109 70.4209 177.047C70.4208 122.986 114.323 79.0843 168.384 79.0842ZM168.384 93.4589C191.448 93.4588 212.34 102.829 227.471 117.96C242.602 133.081 251.973 153.983 251.973 177.047C251.973 200.111 242.602 221.003 227.471 236.135C212.34 251.266 191.449 260.625 168.384 260.625C145.32 260.625 124.428 251.266 109.297 236.135C94.166 221.004 84.7955 200.112 84.7955 177.047C84.7955 153.983 94.1659 133.081 109.297 117.96C124.428 102.829 145.32 93.4589 168.384 93.4589Z" fill="var(--color-accent)"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M113.64 152.979L109.823 157.81L108.748 144.696C108.748 144.696 106.347 140.764 104.877 138.114C98.6697 126.94 89.5166 109.054 84.0498 98.6341C79.5683 101.178 75.2219 105.973 70.3403 113.531C65.5587 120.928 62.8178 126.315 57.9312 139.674C55.0953 147.417 53.9949 151.713 52.5944 162.112C51.1239 173.055 51.8192 180.428 52.1493 186.365C52.3593 190.116 53.2997 196.098 54.9502 202.615C57.5361 212.843 61.2873 223.517 61.2873 223.517L56.3157 218.915L54.335 221.711L51.404 217.05L48.4981 219.365L47.5378 213.514L44.1967 216.429L44.8868 209.347L40.2404 212.793L42.5111 204.941L37.0793 208.547L39.8752 200.134L34.4284 204.09L36.9192 194.907L31.0423 198.659L35.0036 187.385L27.8412 191.571L33.3181 179.212L25.8006 182.123L32.2327 169.229L24 171.965L32.3527 158.755L24.8202 160.366C24.8202 160.366 26.7809 144.361 28.9766 136.603C31.0623 129.246 32.1777 125.649 35.4087 116.366C38.2647 108.169 41.7108 100.913 46.8575 91.2096C51.9842 81.5344 54.5901 77.308 59.6117 70.8584C63.7331 65.5641 67.8995 61.4668 71.9958 57.4775C76.5624 53.031 81.2739 48.6946 89.9918 42.2079C98.7247 35.7068 111.859 29.3397 119.347 25.9431C127.024 22.4594 131.16 20.8669 139.418 18.6066C147.196 16.4774 151.502 15.6747 155.899 15.3375C160.875 14.9569 164.311 14.9219 169.053 15.1145C174.155 15.3205 177.551 15.8702 181.757 16.6405C186.039 17.4228 191.55 18.6781 195.102 19.6685C199.798 20.9789 202.359 21.7127 205.8 22.9816L205.38 19.757L213.202 25.9571L212.232 20.1266L220.92 30.2185C220.92 30.2185 225.547 33.438 227.867 35.0616C230.053 36.5891 232.739 39.31 234.199 40.9145C235.91 42.7956 237.811 45.336 238.846 47.6772C239.971 50.2251 240.692 52.6889 241.717 55.8219C242.902 59.4341 243.157 64.1582 243.157 64.1582C243.157 64.1582 249.104 72.1713 250.06 76.9074C251.03 81.704 248.979 92.9372 248.979 92.9372C248.979 92.9372 246.223 87.0037 243.848 84.4934C240.422 80.8752 232.844 74.9347 232.844 74.9347C232.844 74.9347 227.092 74.7102 223.886 73.5578C217.739 71.3461 210.422 68.059 206.105 65.8052C201.744 63.5275 198.188 59.3226 193.601 59.7097C194.186 66.2689 203.529 86.5281 209.871 103.522C213.243 112.56 214.038 120.288 215.523 137.323C216.229 145.426 208.676 220.006 208.676 220.006L202.079 204.145L202.009 228.994L194.661 204.991L194.001 234.455L187.094 206.036L182.627 235.511L178.611 204.38L170.363 232.775L169.158 203.5L158.915 228.223L160.7 199.169L148.106 220.991L151.347 194.157L139.908 210.442L140.944 186.935L132.596 201.269L133.041 178.967L126.064 190.786L126.609 171.395L119.902 181.168L121.677 163.867L115.41 171.715L117.521 158.4L112.664 163.777L113.64 152.979Z" fill="var(--color-accent)"/>
+        </svg>
+        <span>Feathermode</span>
+      </a>
 
-  <main class="stage">
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#activities">Activities</a>
+        <a href="#hub">The Hub</a>
+        <a href="#newsletter">Newsletter</a>
+      </nav>
 
-    <header class="top">
-      <div class="mark">feathermode</div>
-      <div class="meta">
-        <span class="meta-sub">Project Quill · </span><span>Est. 2026 · Private Alpha Open</span>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4l1.4-1.4M17 7l1.4-1.4"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Hero ────────────────────────────────────────────── -->
+    <section class="hero" id="top">
+      <p class="eyebrow">Lighter-than-air · Paramotoring · Aero sports for individuals</p>
+      <h1 class="hero-title">Feathermode</h1>
+      <p class="hero-tagline">A home base for everything that leaves the ground under its own power.</p>
+      <p class="hero-body">Ballooning, airships, paramotors, paragliders — the small end of aviation has never had a proper home. No single place for the products, the publications, the services, or the events that bring pilots and pilots-to-be together. Feathermode is building that place, one flight at a time.</p>
+      <div class="hero-actions">
+        <a href="#newsletter" class="btn-primary">Join the newsletter</a>
+        <a href="#hub" class="btn-ghost">See what's taking shape</a>
       </div>
-    </header>
+    </section>
 
-    <section class="hero">
+    <!-- ── Activities ──────────────────────────────────────── -->
+    <section class="activities" id="activities">
+      <p class="activities-label">Built around</p>
+      <ul class="chip-row">
+        <li class="chip">Hot Air Balloons</li>
+        <li class="chip">Airships &amp; Blimps</li>
+        <li class="chip">Paramotoring</li>
+        <li class="chip">Paragliding</li>
+        <li class="chip">Hang Gliding</li>
+        <li class="chip">Powered Parachutes</li>
+        <li class="chip">Gyrocopters</li>
+      </ul>
+    </section>
 
-      <p class="eyebrow">A private press for the digital age</p>
+    <!-- ── The Hub ─────────────────────────────────────────── -->
+    <section class="hub" id="hub">
+      <div class="section-head">
+        <h2 class="section-title">The Hub</h2>
+        <p class="section-desc">Everything Feathermode is building will live here as it ships. Here's what's taking shape.</p>
+      </div>
 
-      <h1 class="wordmark">feathermode</h1>
+      <div class="hub-grid">
+        <article class="hub-card">
+          <span class="chip-neutral">Launching soon</span>
+          <h3 class="hub-card-title">Field Notes</h3>
+          <p class="hub-card-desc">A newsletter on lighter-than-air and powered foot-launch flying — gear, technique, weather windows, and the people doing it.</p>
+          <a href="#newsletter" class="hub-card-link">Get the newsletter →</a>
+        </article>
 
-      <p class="tagline">
-        New heights for<br>the written word<span class="cursor" aria-hidden="true"></span>
-      </p>
+        <article class="hub-card">
+          <span class="chip-neutral">In the works</span>
+          <h3 class="hub-card-title">The Hangar</h3>
+          <p class="hub-card-desc">Gear, kits, and small-batch goods built for pilots who fly under their own power.</p>
+        </article>
 
-      <div class="rule" aria-hidden="true"></div>
+        <article class="hub-card">
+          <span class="chip-neutral">In the works</span>
+          <h3 class="hub-card-title">Flight Log</h3>
+          <p class="hub-card-desc">Long-form stories and guides from the ballooning, paramotoring, and paragliding world.</p>
+        </article>
 
-      <p class="manifesto">
-        For four centuries the <em>publishing house</em> has stood between the writer
-        and the reader — deciding what is printed, what is read, and what is worth.
-        We are building tools that return that decision to the only two people who
-        have ever mattered: the one who writes, and the one who turns the page.
-      </p>
+        <article class="hub-card">
+          <span class="chip-neutral">Coming soon</span>
+          <h3 class="hub-card-title">Meetups &amp; Events</h3>
+          <p class="hub-card-desc">Fly-ins, launches, and gatherings — find one near you, or list your own.</p>
+        </article>
 
-      <div class="signup">
-        <span class="signup-label">— Subscribe for updates on Project Quill —</span>
-        <form data-netlify="true" method="POST" name="landing-signup" class="signup-form" id="signup" novalidate>
+        <article class="hub-card">
+          <span class="chip-neutral">Coming soon</span>
+          <h3 class="hub-card-title">Services</h3>
+          <p class="hub-card-desc">Instruction, site guides, and consulting for pilots and clubs getting started.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── Newsletter ──────────────────────────────────────── -->
+    <section class="newsletter" id="newsletter">
+      <h2 class="section-title">Get word when we take off</h2>
+      <p class="section-desc">One email when there's something worth your altitude — a new issue, a product, or an event nearby. No noise.</p>
+
+      <form data-netlify="true" method="POST" name="feathermode-signup" class="signup-form" id="signup" novalidate>
+        <input type="hidden" name="form-name" value="feathermode-signup">
+        <div class="signup-field">
           <input
             name="Email"
             type="email"
             id="email"
-            placeholder="your correspondence address"
+            placeholder="you@example.com"
             autocomplete="email"
             required
           >
-          <button type="submit">
-            <span>Send word</span><span class="arrow"> →</span>
+          <button type="submit" class="btn-primary">
+            <span>Get on the list</span><span class="arrow" aria-hidden="true"> →</span>
           </button>
-        </form>
-        <div class="signup-hint" id="hint" role="status" aria-live="polite">
-          We'll write when we open slots for private access or have updates.
         </div>
-      </div>
-
+        <p class="signup-hint" id="hint" role="status" aria-live="polite">We'll write when there's something worth reading.</p>
+      </form>
     </section>
-
-    <footer class="bottom">
-      <div class="right"><span>MMXXVI</span></div>
-    </footer>
 
   </main>
 
-  <!-- ── Palette switcher (fixed, bottom-right) ────────────── -->
-
-  <nav class="palette-switch" id="paletteSwitch" aria-label="Reading light">
-
-    <button class="palette-btn" data-palette="daylight" aria-label="Daylight">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="4"></circle>
-        <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4l1.4-1.4M17 7l1.4-1.4"></path>
-      </svg>
-      <span class="tip">Daylight</span>
-    </button>
-
-    <button class="palette-btn" data-palette="dusk" aria-label="Dusk">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 18h18"></path>
-        <path d="M5 14.5a7 7 0 0 1 14 0"></path>
-        <path d="M12 5v2M6 7.5l1.2 1.4M18 7.5l-1.2 1.4M3.5 11.5h1.6M18.9 11.5h1.6"></path>
-        <path d="M7 21h2M11 21h2M15 21h2" opacity="0.5"></path>
-      </svg>
-      <span class="tip">Dusk</span>
-    </button>
-
-    <button class="palette-btn active" data-palette="candlelight" aria-label="Candlelight">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 3c-1.6 1.6-2.4 3-2.4 4.2a2.4 2.4 0 0 0 4.8 0C14.4 6 13.6 4.6 12 3z" fill="currentColor" fill-opacity="0.15"></path>
-        <rect x="9" y="10" width="6" height="10" rx="0.6"></rect>
-        <path d="M7.5 20h9"></path>
-        <path d="M12 10v-0.8"></path>
-      </svg>
-      <span class="tip">Candlelight</span>
-    </button>
-
-    <span class="palette-auto" id="paletteAuto" title="Match the hour">Auto</span>
-
-    <button class="palette-trigger" id="paletteTrigger" aria-label="Theme options" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="4"></circle>
-        <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4l1.4-1.4M17 7l1.4-1.4"></path>
-      </svg>
-    </button>
-
-  </nav>
+  <!-- ── Footer ──────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-brand">
+        <span class="footer-mark">Feathermode</span>
+        <span class="footer-tagline">New heights, under your own power.</span>
+      </div>
+      <div class="footer-meta">© 2026 Feathermode</div>
+    </div>
+  </footer>
 
   <script src="js/main.js"></script>
 </body>
