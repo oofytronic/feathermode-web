@@ -95,6 +95,97 @@ a { color: inherit; }
 
 ul { list-style: none; }
 
+/* ─── Lock screen ────────────────────────────────────────────── */
+[data-locked="true"] body { overflow: hidden; height: 100vh; }
+[data-locked="true"] .site-header,
+[data-locked="true"] main,
+[data-locked="true"] .site-footer { display: none; }
+[data-locked="false"] .lock-screen { display: none; }
+
+.lock-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: var(--color-bg);
+}
+
+.lock-card {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: center;
+  padding: var(--space-10) var(--space-8);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(12px);
+  animation: fadeUp var(--t-slow) var(--ease-out) both;
+}
+
+.lock-brand {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: var(--text-2xl);
+  color: var(--color-ink);
+}
+
+.lock-vision {
+  font-size: var(--text-sm);
+  color: var(--color-ink-2);
+  line-height: 1.7;
+}
+
+.lock-form {
+  display: flex;
+  gap: var(--space-3);
+  width: 100%;
+  margin-top: var(--space-2);
+}
+
+.lock-form input {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--color-ink);
+  background: var(--color-card-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-3) var(--space-5);
+  outline: none;
+  transition: border-color var(--t-fast) ease;
+}
+
+.lock-form input:focus { border-color: var(--color-ink-2); }
+.lock-form input::placeholder { color: var(--color-ink-3); }
+
+.lock-error {
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  min-height: 1em;
+}
+
+.lock-error.shake { animation: shake 0.4s var(--ease-out); }
+
+@keyframes shake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(3px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
+}
+
+@media (max-width: 420px) {
+  .lock-form { flex-direction: column; }
+}
+
 /* ─── Decorative sky layer ───────────────────────────────────── */
 .sky {
   position: fixed;
