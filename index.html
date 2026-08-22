@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Feathermode — Lighter-than-air &amp; aero sports for individuals</title>
-<meta name="description" content="Feathermode is a hub for lighter-than-air, paramotoring, and aero sports for individuals — products, publications, services, and events, all in one place.">
+<title>Feathermode — A publishing home you actually own</title>
+<meta name="description" content="Feathermode is a publishing platform for every kind of writer — novels, serial fiction, nonfiction, manga, and more — with a storefront, reader relationships, and discovery built in. One setup fee. No required subscription.">
 
 <!-- Set palette before first paint to avoid a flash -->
 <script>
@@ -27,7 +27,7 @@
 </head>
 <body>
 
-  <!-- ── Decorative sky layer ──────────────────────────────── -->
+  <!-- ── Decorative ambient layer ──────────────────────────── -->
   <div class="sky" aria-hidden="true">
     <svg class="sky-glow" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
       <defs>
@@ -38,14 +38,6 @@
       </defs>
       <circle cx="920" cy="140" r="360" fill="url(#glowA)"/>
       <circle cx="120" cy="620" r="300" fill="url(#glowA)"/>
-    </svg>
-    <svg class="flight-path" viewBox="0 0 600 300" preserveAspectRatio="none">
-      <path id="flightArc" d="M -20 260 C 160 260, 220 40, 460 60 S 640 140, 660 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 10" stroke-linecap="round"/>
-      <circle r="4" fill="currentColor">
-        <animateMotion dur="14s" repeatCount="indefinite" rotate="auto">
-          <mpath href="#flightArc"/>
-        </animateMotion>
-      </circle>
     </svg>
   </div>
 
@@ -61,9 +53,10 @@
       </a>
 
       <nav class="site-nav" aria-label="Primary">
-        <a href="#activities">Activities</a>
-        <a href="#hub">The Hub</a>
-        <a href="#newsletter">Newsletter</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#who-its-for">Who it's for</a>
+        <a href="#waitlist">Waitlist</a>
       </nav>
 
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme">
@@ -77,78 +70,145 @@
 
     <!-- ── Hero ────────────────────────────────────────────── -->
     <section class="hero" id="top">
-      <p class="eyebrow">Lighter-than-air · Paramotoring · Aero sports for individuals</p>
+      <p class="eyebrow">For every kind of writer, and everyone who reads them</p>
       <h1 class="hero-title">Feathermode</h1>
-      <p class="hero-tagline">A home base for everything that leaves the ground under its own power.</p>
-      <p class="hero-body">Ballooning, airships, paramotors, paragliders — the small end of aviation has never had a proper home. No single place for the products, the publications, the services, or the events that bring pilots and pilots-to-be together. Feathermode is building that place, one flight at a time.</p>
+      <p class="hero-tagline">A publishing home you actually own.</p>
+      <p class="hero-body">Novels, serial fiction, short stories, nonfiction, manga — Feathermode gives writers a real site of their own to publish, sell, and build a readership around, and gives readers a place to track, rate, and recommend what they love. One setup fee gets you the site and the software behind it. No subscription required to keep it running.</p>
       <div class="hero-actions">
-        <a href="#newsletter" class="btn-primary">Join the newsletter</a>
-        <a href="#hub" class="btn-ghost">See what's taking shape</a>
+        <a href="#waitlist" class="btn-primary">Join the waitlist</a>
+        <a href="#how-it-works" class="btn-ghost">See how it works</a>
       </div>
     </section>
 
-    <!-- ── Activities ──────────────────────────────────────── -->
-    <section class="activities" id="activities">
-      <p class="activities-label">Built around</p>
-      <ul class="chip-row">
-        <li class="chip">Hot Air Balloons</li>
-        <li class="chip">Airships &amp; Blimps</li>
-        <li class="chip">Paramotoring</li>
-        <li class="chip">Paragliding</li>
-        <li class="chip">Hang Gliding</li>
-        <li class="chip">Powered Parachutes</li>
-        <li class="chip">Gyrocopters</li>
-      </ul>
-    </section>
-
-    <!-- ── The Hub ─────────────────────────────────────────── -->
-    <section class="hub" id="hub">
+    <!-- ── The gap ─────────────────────────────────────────── -->
+    <section class="gap" id="the-gap">
       <div class="section-head">
-        <h2 class="section-title">The Hub</h2>
-        <p class="section-desc">Everything Feathermode is building will live here as it ships. Here's what's taking shape.</p>
+        <h2 class="section-title">Right now, it takes five tools</h2>
+        <p class="section-desc">A storefront for selling. A membership platform for support. A review site for discovery. An email tool for newsletters. None of them talk to each other, and most of them charge you forever.</p>
       </div>
 
-      <div class="hub-grid">
-        <article class="hub-card">
-          <span class="chip-neutral">Launching soon</span>
-          <h3 class="hub-card-title">Field Notes</h3>
-          <p class="hub-card-desc">A newsletter on lighter-than-air and powered foot-launch flying — gear, technique, weather windows, and the people doing it.</p>
-          <a href="#newsletter" class="hub-card-link">Get the newsletter →</a>
+      <div class="gap-grid">
+        <div class="gap-card">
+          <h3 class="gap-card-title">Storefronts</h3>
+          <p class="gap-card-desc">Sell your book — but only if it's a novel, and only by renting shelf space year after year.</p>
+        </div>
+        <div class="gap-card">
+          <h3 class="gap-card-title">Membership platforms</h3>
+          <p class="gap-card-desc">Build reader support — but with no bookshop, and no site of your own underneath it.</p>
+        </div>
+        <div class="gap-card">
+          <h3 class="gap-card-title">Review platforms</h3>
+          <p class="gap-card-desc">Help readers discover new work — completely disconnected from where that work is published.</p>
+        </div>
+        <div class="gap-card">
+          <h3 class="gap-card-title">Newsletter tools</h3>
+          <p class="gap-card-desc">Reach your readers' inbox — as one more login, one more bill, one more silo.</p>
+        </div>
+      </div>
+
+      <p class="gap-resolve">Feathermode puts all four under one roof — and one price.</p>
+    </section>
+
+    <!-- ── How it works ────────────────────────────────────── -->
+    <section class="pillars" id="how-it-works">
+      <div class="section-head">
+        <h2 class="section-title">One site. Everything it needs to do.</h2>
+        <p class="section-desc">Feathermode is built for the full life of a piece of writing — from first chapter to the readers who keep coming back.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <article class="pillar-card">
+          <h3 class="pillar-card-title">Publish anything</h3>
+          <p class="pillar-card-desc">Novels, serial fiction, short stories, nonfiction, manga and comics — in digital and print, from the same site.</p>
         </article>
 
-        <article class="hub-card">
-          <span class="chip-neutral">In the works</span>
-          <h3 class="hub-card-title">The Hangar</h3>
-          <p class="hub-card-desc">Gear, kits, and small-batch goods built for pilots who fly under their own power.</p>
+        <article class="pillar-card">
+          <h3 class="pillar-card-title">Own the site, not rent it</h3>
+          <p class="pillar-card-desc">A one-time setup gets you the site and the software behind it. Keep publishing without a subscription clock running.</p>
         </article>
 
-        <article class="hub-card">
-          <span class="chip-neutral">In the works</span>
-          <h3 class="hub-card-title">Flight Log</h3>
-          <p class="hub-card-desc">Long-form stories and guides from the ballooning, paramotoring, and paragliding world.</p>
+        <article class="pillar-card">
+          <h3 class="pillar-card-title">Real reader relationships</h3>
+          <p class="pillar-card-desc">Patreon-style support tiers, built into your own site, between you and your readers — no platform standing in the middle.</p>
         </article>
 
-        <article class="hub-card">
-          <span class="chip-neutral">Coming soon</span>
-          <h3 class="hub-card-title">Meetups &amp; Events</h3>
-          <p class="hub-card-desc">Fly-ins, launches, and gatherings — find one near you, or list your own.</p>
+        <article class="pillar-card">
+          <h3 class="pillar-card-title">A home for readers, too</h3>
+          <p class="pillar-card-desc">Free reader sites for tracking, rating, and reviewing what they read — like Goodreads, if Goodreads belonged to the people using it.</p>
         </article>
 
-        <article class="hub-card">
-          <span class="chip-neutral">Coming soon</span>
-          <h3 class="hub-card-title">Services</h3>
-          <p class="hub-card-desc">Instruction, site guides, and consulting for pilots and clubs getting started.</p>
+        <article class="pillar-card">
+          <h3 class="pillar-card-title">One open discovery registry</h3>
+          <p class="pillar-card-desc">Reviews can sync to a shared registry that spans every Feathermode site — and any site built on the same open premise. Curators get a place in it too.</p>
+        </article>
+
+        <article class="pillar-card">
+          <h3 class="pillar-card-title">Newsletters, your way</h3>
+          <p class="pillar-card-desc">Email newsletters and web push notifications built in, so your audience is something you reach directly, not something you rent.</p>
         </article>
       </div>
     </section>
 
-    <!-- ── Newsletter ──────────────────────────────────────── -->
-    <section class="newsletter" id="newsletter">
-      <h2 class="section-title">Get word when we take off</h2>
-      <p class="section-desc">One email when there's something worth your altitude — a new issue, a product, or an event nearby. No noise.</p>
+    <!-- ── Who it's for ────────────────────────────────────── -->
+    <section class="audience" id="who-its-for">
+      <div class="section-head">
+        <h2 class="section-title">Built for three kinds of people</h2>
+        <p class="section-desc">Everyone gets a site. What it's for depends on who's using it.</p>
+      </div>
 
-      <form data-netlify="true" method="POST" name="feathermode-signup" class="signup-form" id="signup" novalidate>
-        <input type="hidden" name="form-name" value="feathermode-signup">
+      <div class="audience-grid">
+        <article class="audience-card">
+          <span class="chip-neutral">Writers</span>
+          <p class="audience-card-desc">Publish novels, series, short fiction, nonfiction, or manga from a site you actually own. Sell directly, build reader support, and send your own newsletters — without giving up a cut of every sale.</p>
+        </article>
+
+        <article class="audience-card">
+          <span class="chip-neutral">Readers</span>
+          <p class="audience-card-desc">Get a free site to track, rate, and review what you read. Follow the writers you love, support the ones you want to see keep going, and see reviews from a registry no single company owns.</p>
+        </article>
+
+        <article class="audience-card">
+          <span class="chip-neutral">Curators</span>
+          <p class="audience-card-desc">Build reading lists and recommendations with a real audience and a real place in the registry. Discovery shouldn't be an algorithm's job alone.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── Pricing ─────────────────────────────────────────── -->
+    <section class="pricing" id="pricing">
+      <div class="section-head">
+        <h2 class="section-title">One honest payment</h2>
+        <p class="section-desc">Most platforms in this space bill you every month whether you publish or not. Feathermode doesn't.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-col">
+          <h3 class="pricing-col-title">The usual way</h3>
+          <ul class="pricing-list">
+            <li>A fee every month or year, whether you publish or not</li>
+            <li>Cancel, and your site goes with it</li>
+            <li>Separate tools — and separate bills — for selling, support, newsletters, and reviews</li>
+          </ul>
+        </div>
+        <div class="pricing-col pricing-col-highlight">
+          <h3 class="pricing-col-title">The Feathermode way</h3>
+          <ul class="pricing-list">
+            <li>One setup fee. The site and the software are yours.</li>
+            <li>Keep it running with or without us</li>
+            <li>Publishing, support, newsletters, and reviews — one place, one payment</li>
+            <li>A few optional add-ons for extra services, always optional, never required</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Waitlist ────────────────────────────────────────── -->
+    <section class="newsletter" id="waitlist">
+      <h2 class="section-title">Be first through the door</h2>
+      <p class="section-desc">Feathermode is being built in the open. Leave your email and we'll bring you in as the first sites go live — writer or reader, whichever you are.</p>
+
+      <form data-netlify="true" method="POST" name="feathermode-waitlist" class="signup-form" id="signup" novalidate>
+        <input type="hidden" name="form-name" value="feathermode-waitlist">
         <div class="signup-field">
           <input
             name="Email"
@@ -159,10 +219,10 @@
             required
           >
           <button type="submit" class="btn-primary">
-            <span>Get on the list</span><span class="arrow" aria-hidden="true"> →</span>
+            <span>Join the waitlist</span><span class="arrow" aria-hidden="true"> →</span>
           </button>
         </div>
-        <p class="signup-hint" id="hint" role="status" aria-live="polite">We'll write when there's something worth reading.</p>
+        <p class="signup-hint" id="hint" role="status" aria-live="polite">We'll write when there's a site ready for you.</p>
       </form>
     </section>
 
@@ -173,7 +233,7 @@
     <div class="site-footer-inner">
       <div class="footer-brand">
         <span class="footer-mark">Feathermode</span>
-        <span class="footer-tagline">New heights, under your own power.</span>
+        <span class="footer-tagline">Publish it. Own it.</span>
       </div>
       <div class="footer-meta">© 2026 Feathermode</div>
     </div>

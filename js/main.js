@@ -48,10 +48,10 @@ form.addEventListener('submit', e => {
     return;
   }
 
-  const body = new URLSearchParams({ 'form-name': 'feathermode-signup', Email: val }).toString();
+  const body = new URLSearchParams({ 'form-name': 'feathermode-waitlist', Email: val }).toString();
   fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body })
     .then(() => {
-      form.innerHTML = '<p class="signup-success">Thank you. We\'ll be in touch.</p>';
+      form.innerHTML = '<p class="signup-success">You\'re on the list. We\'ll be in touch.</p>';
     })
     .catch(() => {
       hint.textContent = 'Something went wrong. Please try again.';
