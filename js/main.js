@@ -3,21 +3,6 @@ const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const root = document.documentElement;
 
-// ---------- Family dropdown ----------
-// A <details>, so it opens and closes natively; this only closes it on outside click or Escape.
-const closeFamily = (family) => (event) => {
-  const outside = event.type === "click" && !family.contains(event.target);
-  const escaped = event.type === "keydown" && event.key === "Escape";
-  if (!family.open || !(outside || escaped)) return;
-  family.open = false;
-  if (escaped) $("summary", family)?.focus();
-};
-const initFamily = () => {
-  const family = $(".family");
-  if (!family) return;
-  ["click", "keydown"].forEach((type) => document.addEventListener(type, closeFamily(family)));
-};
-
 // ---------- Scenes ----------
 // State is two ids: the scene the visitor has chosen (pinned) and the one being previewed by hover or focus.
 // What is shown is the preview if there is one, otherwise the pinned scene.
@@ -76,6 +61,5 @@ const initScenes = () => {
 // ---------- Footer year ----------
 const initYear = () => $$("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
 
-initFamily();
 initScenes();
 initYear();
