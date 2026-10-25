@@ -7,20 +7,33 @@ parent's front door. It follows the **Oofytronic design system** (see `oofytroni
 
 ## Structure
 
-- `/` — the **stage**: six full-screen scenes (Welcome, Mission, Platforms, Principles, Writing, Contact).
-  See the "Stage" section of the Oofytronic design system: content that is not long-form text is accessed,
-  not scrolled to. With JavaScript off, with reduced motion, or after the "use the scrolling layout" button
-  it is an ordinary scrolling page.
-- `/principles/` — the four principles in full, as a scrolling page (long-form text).
+- `/` — **one screen that never scrolls.** The header has the family dropdown on the left, the Feathermode
+  logo in the middle and the nav on the right. The nav has two groups: **Platforms** (Common Tongue, Airlift)
+  and **Writing** (Nimbus Nectar, Feathermode Updates, Oofytronic), in that order.
+  - Every nav item has a **scene**. Hovering (or keyboard-focusing) an item shows its scene; moving away
+    returns to the welcome scene. Clicking goes to that item's site or page. Items with no site yet
+    (Common Tongue, Airlift, Nimbus Nectar) have scenes that say so, and a click keeps that scene showing.
+  - The logo is the full lockup on the welcome scene and just the mark (no box) on every other scene.
+    Clicking it returns to the welcome scene.
+  - **Touch.** There is no hover, so the first tap on an item shows its scene and a second tap (or the button
+    in the scene) follows the link.
+  - Without JavaScript the scenes are an ordinary stacked, scrolling page and the nav links jump to them.
+    `#common-tongue` etc. deep-link to a scene.
+  - Below 78rem the nav no longer fits beside the logo, so it becomes a bar along the bottom (two rows on
+    phones, one slim row on short landscape screens).
+- `/principles/` — the mission and the four principles, as a scrolling page (long-form text).
+- `/updates/` — Feathermode Updates, the newsletter page. No posts yet; subscribing is a `mailto:` link.
 - `/communication/` — the **previous Feathermode site, moved here unchanged**. It is a placeholder: the
   communication / everything-app platform will get its own repository, and this folder is what will seed it.
   It still describes the old publishing pitch and still calls itself "Feathermode". It is publicly reachable
-  at `/communication/` until it moves out. Do not edit it here unless that is deliberate.
-- Pages are folders with an `index.html`, so URLs have no `.html`.
+  at `/communication/` until it moves out and is no longer linked from the site. Do not edit it here unless
+  that is deliberate.
+- Pages are folders with an `index.html`, so URLs have no `.html`. The pages are written out by hand (the
+  header and footer are repeated in each); a scratch generator was used for the first version only.
 
 ## The family
 
-The family island (header, top centre; top right on phones) lists every member. It is hand-maintained markup
+The family dropdown (header, top left) lists every member. It is hand-maintained markup
 in each site; a shared brand registry was deliberately skipped for now.
 
 | Member | Kind | Status |
@@ -45,26 +58,27 @@ Penna and Flight Log.
   mark in the previous site (a feather-wing in a ring) with the "Feathermode" wordmark outlined from
   Crimson Pro 400. They are near-white, for dark backgrounds. `assets/favicon.svg` and
   `assets/feathermode-icon.png` (social preview) are the mark on the dark ground.
-- The wordmark island is the lockup and collapses to the mark on scroll or after the title scene.
+- The wordmark is the lockup, and becomes the bare mark (no box) while any other scene is showing.
+- Each scene has its own glow colour behind it (Oofytronic's is brass, as on the blog).
 
 ## Content notes
 
-- The Mission and principles text is the original motuALIS copy with the company name changed. The hero
-  eyebrow, Platforms copy, Writing rows and Contact line are new copy to review.
-- Email addresses and the newsletter sign-up still use `hello@motualis.com`, and the sign-up is only a
-  `mailto:` link.
+- The mission and principles text is the original motuALIS copy with the company name changed. The welcome
+  line, the scene copy and the Updates page are new copy to review.
+- The contact address is `hello@feathermode.com` (footer, principles page, newsletter sign-up). The sign-up is
+  only a `mailto:` link.
 - Analytics: none (motuALIS's Fathom script was not carried over).
 
 ## To do
 
-- [ ] Set a Feathermode email address and replace the `mailto:` newsletter link with a real list and form.
+- [ ] Make sure `hello@feathermode.com` receives mail, and replace the `mailto:` newsletter link with a real list and form.
 - [ ] Give the communication app and the distribution platform final names and domains, then link them from
-  the Platforms scene and the family island.
+  their nav items and the family dropdown (their scenes currently say "to be announced").
 - [ ] Check trademarks and domains for Common Tongue and Airlift.
 - [ ] Replace the Oofytronic link (`oofytronic-site.vercel.app`, the repo's recorded address) with its real domain.
-- [ ] Spin up Nimbus Nectar and link it from the family island and the Writing scene.
+- [ ] Spin up Nimbus Nectar and link it from its nav item and the family dropdown.
 - [ ] Move `communication/` into its own repository (`git subtree split --prefix=communication` keeps its
   history), then remove it from here.
 - [ ] Decide whether to add analytics.
-- [ ] Try the stage on real phones and tablets.
+- [ ] Try the scenes (hover and the touch first-tap) on real devices and tablets.
 - [ ] Share the design-system code between the sites instead of keeping copies.

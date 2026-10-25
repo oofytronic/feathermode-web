@@ -17,19 +17,14 @@
   <meta property="og:description" content="Feathermode is designing, developing and researching ways to make technology, the World Wide Web, and humanity's stories more accessible and without boundaries.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.setAttribute('data-scenes','')</script>
   <script src="js/main.js" defer></script>
 </head>
 <body>
-
 <a class="skip-link" href="#main">Skip to content</a>
-<button type="button" class="skip-link skip-link--layout" data-motion-off hidden>Use the scrolling layout</button>
 <header class="site-header">
   <div class="wrap">
-    <a class="wordmark" href="./" data-island="wordmark" data-zone="top-left" data-trigger="scrolled">
-      <span class="wordmark__rest"><span><img class="wordmark__logo" src="assets/feathermode_logo-light.svg" alt="Feathermode" width="1440" height="272"></span></span>
-      <span class="wordmark__mark"><span><img class="wordmark__icon" src="assets/feathermode-icon-light.svg" alt="" width="250" height="268"></span></span>
-    </a>
-    <details class="family" data-island="family" data-zone="top-center" data-trigger="scrolled">
+    <details class="family">
       <summary class="family__summary"><span>Family</span><span class="family__chevron" aria-hidden="true"></span></summary>
       <div class="family__panel">
         <p class="family__title">The Feathermode family</p>
@@ -42,170 +37,84 @@
         </ul>
       </div>
     </details>
-    <nav class="island" aria-label="Primary" data-island="nav" data-zone="top-right" data-trigger="scrolled">
-      <div class="island__context" aria-hidden="true"><span></span></div>
-      <ul>
-        <li><a href="./#platforms" data-section="platforms">Platforms</a></li>
-        <li><a href="#principles" data-section="principles">Principles</a></li>
-        <li><a href="./#writing" data-section="writing">Writing</a></li>
+    <a class="wordmark" href="./" data-scene="home" aria-label="Feathermode, home">
+      <img class="wordmark__logo" src="assets/feathermode_logo-light.svg" alt="" width="1440" height="272">
+      <img class="wordmark__icon" src="assets/feathermode-icon-light.svg" alt="" width="250" height="268">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-nav__group" aria-label="Platforms">
+        <li><a href="#common-tongue" data-scene="common-tongue">Common Tongue</a></li>
+        <li><a href="#airlift" data-scene="airlift">Airlift</a></li>
+      </ul>
+      <ul class="site-nav__group" aria-label="Writing">
+        <li><a href="#nimbus-nectar" data-scene="nimbus-nectar">Nimbus Nectar</a></li>
+        <li><a href="updates/" data-scene="updates">Feathermode Updates</a></li>
+        <li><a href="https://oofytronic-site.vercel.app" data-scene="oofytronic" target="_blank" rel="noopener">Oofytronic<span class="visually-hidden"> (opens another site)</span></a></li>
       </ul>
     </nav>
   </div>
 </header>
-<main id="main" class="stage">
-  <div class="stage__backdrop" aria-hidden="true"></div>
-  <nav class="toc" aria-label="Scenes" data-island="contents" data-zone="left" data-trigger="always" data-dock="flow">
-    <p class="toc__title">Scenes</p>
-    <div class="toc__meter" aria-hidden="true"></div>
-    <ol class="toc__list">
-      <li><a href="#title"><span class="toc__num" aria-hidden="true">01</span><span class="toc__label">Welcome</span></a></li>
-      <li><a href="#mission"><span class="toc__num" aria-hidden="true">02</span><span class="toc__label">Mission</span></a></li>
-      <li><a href="#platforms"><span class="toc__num" aria-hidden="true">03</span><span class="toc__label">Platforms</span></a></li>
-      <li><a href="#principles"><span class="toc__num" aria-hidden="true">04</span><span class="toc__label">Principles</span></a></li>
-      <li><a href="#writing"><span class="toc__num" aria-hidden="true">05</span><span class="toc__label">Writing</span></a></li>
-      <li><a href="#contact"><span class="toc__num" aria-hidden="true">06</span><span class="toc__label">Contact</span></a></li>
-    </ol>
-    <div class="toc__step">
-      <button type="button" data-step="-1" aria-label="Previous scene"><span aria-hidden="true">‹</span></button>
-      <button type="button" data-step="1" aria-label="Next scene"><span aria-hidden="true">›</span></button>
-    </div>
-  </nav>
-
-  <section id="title" class="scene hero" data-context="Welcome" aria-labelledby="hero-h" style="--i:0">
-    <div class="hero__glow" aria-hidden="true"></div>
+<main id="main" class="scenes">
+  <section id="home" class="scene scene--home" data-name="Welcome" aria-labelledby="home-h">
     <div class="scene__body">
-      <span class="eyebrow">Freedom-focused technology company</span>
-      <h1 id="hero-h" tabindex="-1">Freedom-Focused <span class="gradient-text">Storytelling Technologies</span></h1>
-      <p class="lede">Feathermode is designing, developing and researching ways to make technology, the World Wide Web, and humanity's stories more accessible and without boundaries.</p>
-      <div class="hero__actions">
-        <a class="button button--primary framed" href="#platforms">See the platforms</a>
-        <a class="button framed" href="#principles">Read the principles</a>
-      </div>
-    </div>
-    <p class="scene__hint" aria-hidden="true"><span class="hint hint--wide">Use the arrow keys or the list on the left</span><span class="hint hint--tall">Swipe up to explore</span></p>
-  </section>
-
-  <section id="mission" class="scene section mission" data-context="Mission" aria-labelledby="mission-h" style="--i:1">
-    <div class="scene__body">
-      <div class="section__head"><h2 id="mission-h" tabindex="-1">Mission</h2></div>
-      <p class="mission__lede">My name is OOF. Feathermode is my company dedicated to designing, developing and researching ways to bring technology, the World Wide Web, and humanity's stories to individuals without restriction or infringement.</p>
-      <p>I aim to create methods that allow each human being to connect, socialize and experience each other with minimal intervention from external entities. My vision is for a World Wide Web that is human-centric, boundless and filled with stories showcasing the breadth of humanity.</p>
+      <p class="scene__kicker"><span>Freedom-focused technology company</span></p>
+      <h1 id="home-h" tabindex="-1">Freedom-Focused <span class="gradient-text">Storytelling Technologies</span></h1>
+      <p class="scene__lede">Feathermode is designing, developing and researching ways to make technology, the World Wide Web, and humanity's stories more accessible and without boundaries.</p>
+      <p class="scene__cta"><a class="button framed" href="principles/">Mission and principles</a></p>
+      <p class="scene__hint" aria-hidden="true"><span class="hint hint--hover">Point at a name above to preview it</span><span class="hint hint--touch">Tap a name below to preview it</span></p>
     </div>
   </section>
-
-  <section id="platforms" class="scene section" data-context="Platforms" aria-labelledby="platforms-h" style="--i:2">
+  <section id="common-tongue" class="scene" data-name="Common Tongue" aria-labelledby="common-tongue-h">
     <div class="scene__body">
-      <div class="section__head"><h2 id="platforms-h" tabindex="-1">Platforms</h2></div>
-      <p class="section__intro">Each platform is its own product with its own home on the web. They share a set of principles and are built to work together.</p>
-      <div class="picker" data-picker>
-        <div class="picker__tabs" role="tablist" aria-label="Platforms">
-          <button type="button" role="tab" id="tab-common-tongue" aria-controls="panel-common-tongue" aria-selected="true" class="picker__tab"><span class="picker__num" aria-hidden="true">01</span><span class="picker__name">Common Tongue</span><span class="picker__meta">Communication</span></button>
-          <button type="button" role="tab" id="tab-airlift" aria-controls="panel-airlift" aria-selected="false" class="picker__tab"><span class="picker__num" aria-hidden="true">02</span><span class="picker__name">Airlift</span><span class="picker__meta">Distribution</span></button>
-        </div>
-        <div class="picker__panels">
-          <article class="card card--featured" id="panel-common-tongue" role="tabpanel" aria-labelledby="tab-common-tongue">
-            <div class="card__top"><span class="card__tag">Communication</span><span class="status" data-status="exploration">Exploration</span></div>
-            <h3 class="card__title">Common Tongue</h3>
-            <p class="card__excerpt">An exploration in end-to-end communication through peer-to-peer, local-first and decentralized methods. Common Tongue starts from one idea: the standard for how people and software talk to each other comes before any collaborative app or feature built on top of it.</p>
-            <ul class="card__tags" aria-label="Properties"><li>End-to-end encrypted</li><li>Peer-to-peer</li><li>Local-first</li></ul>
-            <p class="card__note">Named for the shared language everyone agrees on before they can say anything else.</p>
-            <p class="card__meta"><span>Own domain · to be announced</span></p>
-          </article>
-          <article class="card" id="panel-airlift" role="tabpanel" aria-labelledby="tab-airlift">
-            <div class="card__top"><span class="card__tag">Distribution</span><span class="status" data-status="in-development">In development</span></div>
-            <h3 class="card__title">Airlift</h3>
-            <p class="card__excerpt">A distribution platform that lives inside a website or platform you own. When walled gardens close the roads to your readers, Airlift flies your work over them. You pay in tokens, because the APIs underneath charge a little per transaction.</p>
-            <ul class="card__tags" aria-label="Properties"><li>Self-owned</li><li>Token-based</li></ul>
-            <p class="card__note">Named for the airlifts that kept supplies moving when the roads were cut.</p>
-            <p class="card__meta"><span>Own domain · to be announced</span></p>
-          </article>
-        </div>
-      </div>
+      <p class="scene__kicker"><span>Platform · Communication</span><span class="status" data-status="exploration">Exploration</span></p>
+      <h2 id="common-tongue-h" tabindex="-1">Common Tongue</h2>
+      <p class="scene__lede">An exploration in end-to-end communication through peer-to-peer, local-first and decentralized methods. Common Tongue starts from one idea: the standard for how people and software talk to each other comes before any collaborative app or feature built on top of it.</p>
+      <ul class="scene__tags" aria-label="Properties"><li>End-to-end encrypted</li><li>Peer-to-peer</li><li>Local-first</li></ul>
+      <p class="scene__note">Named for the shared language everyone agrees on before they can say anything else.</p>
+      <p class="scene__cta"><span class="scene__soon">Its own site is to be announced</span></p>
     </div>
   </section>
-
-  <section id="principles" class="scene section" data-context="Principles" aria-labelledby="principles-h" style="--i:3">
+  <section id="airlift" class="scene" data-name="Airlift" aria-labelledby="airlift-h">
     <div class="scene__body">
-      <div class="section__head"><h2 id="principles-h" tabindex="-1">Principles</h2><a class="more" href="principles/">Read them as a page →</a></div>
-      <p class="section__intro">Being in the position of helping others to create on the web, I've established a set of <b>principles</b> that drive me as I work on digitizing humanity's stories.</p>
-      <div class="picker" data-picker="numbers">
-        <div class="picker__tabs" role="tablist" aria-label="Principles">
-          <button type="button" role="tab" id="tab-freedom" aria-controls="panel-freedom" aria-selected="true" class="picker__tab"><span class="picker__num" aria-hidden="true">01</span><span class="picker__name">Freedom</span></button>
-          <button type="button" role="tab" id="tab-ownership" aria-controls="panel-ownership" aria-selected="false" class="picker__tab"><span class="picker__num" aria-hidden="true">02</span><span class="picker__name">Ownership</span></button>
-          <button type="button" role="tab" id="tab-community" aria-controls="panel-community" aria-selected="false" class="picker__tab"><span class="picker__num" aria-hidden="true">03</span><span class="picker__name">Community</span></button>
-          <button type="button" role="tab" id="tab-independence" aria-controls="panel-independence" aria-selected="false" class="picker__tab"><span class="picker__num" aria-hidden="true">04</span><span class="picker__name">Independence</span></button>
-        </div>
-        <div class="picker__panels">
-          <article class="principle-panel framed framed--lg" id="panel-freedom" role="tabpanel" aria-labelledby="tab-freedom">
-            <h3>The Web is a Place of Freedom</h3>
-            <p>Humans do not differ much from one another, but in the areas they do differ, that difference is powerful. Since the Web is the dominant platform for human expression, the Web should remain a free environment capable of showcasing the nuances of humanity. Freedom is a natural right gifted to every human at birth and while we join structures that restrict freedom in exchange for certain comforts and securities, the World Wide Web should be a place where freedom remains uninhibited.</p>
-          </article>
-          <article class="principle-panel framed framed--lg" id="panel-ownership" role="tabpanel" aria-labelledby="tab-ownership">
-            <h3>Digital Ownership is Powerful</h3>
-            <p>Humans create. We're builders and we use the things we build to define ourselves. Ownership over these creations is paramount to establishing personal and communal identity. Today, we create more frequently on the Web than in any other environment so we should gain and maintain ownership over our digital creations as we would any other tangible creation.</p>
-          </article>
-          <article class="principle-panel framed framed--lg" id="panel-community" role="tabpanel" aria-labelledby="tab-community">
-            <h3>The Web is Communal</h3>
-            <p>The Web is a communal resting place for all stories and information. The potential of the World Wide Web is to be an ecosystem that represents and connects all of humanity. However, in order for communities to form, "discovery" becomes paramount. Throughout time, many have tried to come up with ways for humans to form digital communities. Each Website or Web App should be equipped with ways to be discoverable and each individual should be aware of those methods of discoverability.</p>
-          </article>
-          <article class="principle-panel framed framed--lg" id="panel-independence" role="tabpanel" aria-labelledby="tab-independence">
-            <h3>Individuality and Independence is a Structural Necessity</h3>
-            <p>The Web is a place to express one's individuality. The Web depends on individuality as a structural component. Without individuality, the Web would not be a useful tool for Humanity. Therefore, users should have access to tools for digital expression and should be able to create independently without any barriers outside of the ones necessary for accessing the web itself. In order to achieve this, we need to come up with ways to create on the Web that feel as easy as putting pen to paper. The easier it is to create and maintain those creations, the easier it will be to explore one's individuality and enhance the Web's usefulness.</p>
-          </article>
-        </div>
-      </div>
+      <p class="scene__kicker"><span>Platform · Distribution</span><span class="status" data-status="in-development">In development</span></p>
+      <h2 id="airlift-h" tabindex="-1">Airlift</h2>
+      <p class="scene__lede">A distribution platform that lives inside a website or platform you own. When walled gardens close the roads to your readers, Airlift flies your work over them. You pay in tokens, because the APIs underneath charge a little per transaction.</p>
+      <ul class="scene__tags" aria-label="Properties"><li>Self-owned</li><li>Token-based</li></ul>
+      <p class="scene__note">Named for the airlifts that kept supplies moving when the roads were cut.</p>
+      <p class="scene__cta"><span class="scene__soon">Its own site is to be announced</span></p>
     </div>
   </section>
-
-  <section id="writing" class="scene section" data-context="Writing" aria-labelledby="writing-h" style="--i:4">
+  <section id="nimbus-nectar" class="scene" data-name="Nimbus Nectar" aria-labelledby="nimbus-nectar-h">
     <div class="scene__body">
-      <div class="section__head"><h2 id="writing-h" tabindex="-1">Writing</h2></div>
-      <ul class="project-rows">
-        <li>
-          <article class="project-row">
-            <div class="project-row__main">
-              <h3 class="project-row__name"><a href="https://oofytronic-site.vercel.app" target="_blank" rel="noopener">Oofytronic</a></h3>
-              <p class="project-row__blurb">My personal technology blog: essays and experiments on local-first, peer-to-peer and decentralized systems, crypto, automation and AI.</p>
-            </div>
-            <p class="project-row__meta"><span class="kind">Blog</span><span>oofytronic-site.vercel.app ↗</span></p>
-          </article>
-        </li>
-        <li>
-          <article class="project-row project-row--static">
-            <div class="project-row__main">
-              <h3 class="project-row__name">Nimbus Nectar</h3>
-              <p class="project-row__blurb">The Feathermode publication. To be spun up.</p>
-            </div>
-            <p class="project-row__meta"><span class="kind">Publication</span><span>Coming soon</span></p>
-          </article>
-        </li>
-        <li>
-          <article class="project-row">
-            <div class="project-row__main">
-              <h3 class="project-row__name"><a href="mailto:hello@motualis.com?subject=Subscribe%20to%20the%20Feathermode%20newsletter">The Feathermode Newsletter</a></h3>
-              <p class="project-row__blurb">Progress notes from the lab: what is being built, what is being learned, and where the open web is heading.</p>
-            </div>
-            <p class="project-row__meta"><span class="kind">Newsletter</span><span>Subscribe by email →</span></p>
-          </article>
-        </li>
-      </ul>
+      <p class="scene__kicker"><span>Writing · Publication</span><span class="status" data-status="soon">Coming soon</span></p>
+      <h2 id="nimbus-nectar-h" tabindex="-1">Nimbus Nectar</h2>
+      <p class="scene__lede">The Feathermode publication. It will be spun up as a site of its own.</p>
+      <p class="scene__cta"><span class="scene__soon">Not live yet</span></p>
     </div>
   </section>
-
-  <section id="contact" class="scene section contact" data-context="Contact" aria-labelledby="contact-h" style="--i:5">
+  <section id="updates" class="scene" data-name="Feathermode Updates" aria-labelledby="updates-h">
     <div class="scene__body">
-      <div class="section__head"><h2 id="contact-h" tabindex="-1">Contact</h2></div>
-      <p>For partnerships, press, and everything else.</p>
-      <a class="contact__email" href="mailto:hello@motualis.com">hello@motualis.com</a>
+      <p class="scene__kicker"><span>Writing · Newsletter</span></p>
+      <h2 id="updates-h" tabindex="-1">Feathermode Updates</h2>
+      <p class="scene__lede">Progress notes from the lab: what is being built, what is being learned, and where the open web is heading.</p>
+      <p class="scene__cta"><a class="button button--primary framed" href="updates/">Read the updates</a></p>
+    </div>
+  </section>
+  <section id="oofytronic" class="scene" data-name="Oofytronic" aria-labelledby="oofytronic-h">
+    <div class="scene__body">
+      <p class="scene__kicker"><span>Writing · Blog</span></p>
+      <h2 id="oofytronic-h" tabindex="-1">Oofytronic</h2>
+      <p class="scene__lede">My personal technology blog: essays and experiments on local-first, peer-to-peer and decentralized systems, crypto, automation and AI.</p>
+      <p class="scene__cta"><a class="button button--primary framed" href="https://oofytronic-site.vercel.app" target="_blank" rel="noopener">Visit Oofytronic ↗</a></p>
     </div>
   </section>
 </main>
 <footer class="site-footer">
   <div class="wrap">
     <p>&copy; <span data-year>2026</span> | motuALIS, LLC, doing business as Feathermode | All Rights Reserved</p>
-    <button type="button" class="motion-toggle" data-motion-toggle aria-pressed="false" hidden>Reduce motion</button>
+    <p><a href="mailto:hello@feathermode.com">hello@feathermode.com</a></p>
   </div>
 </footer>
-<p class="visually-hidden" role="status" aria-live="polite" data-stage-status></p>
+<p class="visually-hidden" role="status" aria-live="polite" data-scene-status></p>
 </body>
 </html>
