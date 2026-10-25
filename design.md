@@ -1,0 +1,70 @@
+# Design
+
+Feathermode is the parent of a family of products, in the way 37signals owns Basecamp and HEY: the products
+belong to Feathermode and say so, and each has its own presence (its own domain and look). This site is the
+parent's front door. It follows the **Oofytronic design system** (see `oofytronic-site`: `design.md` and the
+`/design-system/` page). This file records only how Feathermode uses it.
+
+## Structure
+
+- `/` — the **stage**: six full-screen scenes (Welcome, Mission, Platforms, Principles, Writing, Contact).
+  See the "Stage" section of the Oofytronic design system: content that is not long-form text is accessed,
+  not scrolled to. With JavaScript off, with reduced motion, or after the "use the scrolling layout" button
+  it is an ordinary scrolling page.
+- `/principles/` — the four principles in full, as a scrolling page (long-form text).
+- `/communication/` — the **previous Feathermode site, moved here unchanged**. It is a placeholder: the
+  communication / everything-app platform will get its own repository, and this folder is what will seed it.
+  It still describes the old publishing pitch and still calls itself "Feathermode". It is publicly reachable
+  at `/communication/` until it moves out. Do not edit it here unless that is deliberate.
+- Pages are folders with an `index.html`, so URLs have no `.html`.
+
+## The family
+
+The family island (header, top centre; top right on phones) lists every member. It is hand-maintained markup
+in each site; a shared brand registry was deliberately skipped for now.
+
+| Member | Kind | Status |
+| --- | --- | --- |
+| **Feathermode** | Parent | Live (this site) |
+| **Common Tongue** | Communication app | Exploration; own domain to come (working name) |
+| **Airlift** | Distribution | In development; own domain to come (working name) |
+| **Oofytronic** | Personal blog | Live (separate repository) |
+| **Nimbus Nectar** | Publication from Feathermode | Not live; to be spun up |
+
+The legal entity is **motuALIS, LLC**, doing business as Feathermode. The motuALIS site (separate repository)
+is a one-screen page for the LLC that links here. Earlier names retired: MTF Technologies, WWWinged, Alula,
+Penna and Flight Log.
+
+## Look
+
+- **Palette and type** are the former motuALIS brand: violet `#7B0FFF`, blue `#177EFE`, cyan `#00DEFF`,
+  light `#F9FBFF`, dark `#333F54`, on a deeper slate ground; Urbanist (self-hosted). Cyan is the accent;
+  violet appears only in the brand gradient (it is too dark to carry text).
+- **Corners** are slightly rounded (`--radius`, `--radius-lg`), unlike Oofytronic.
+- **Logo.** `assets/feathermode_logo-light.svg` and `assets/feathermode-icon-light.svg` were built from the
+  mark in the previous site (a feather-wing in a ring) with the "Feathermode" wordmark outlined from
+  Crimson Pro 400. They are near-white, for dark backgrounds. `assets/favicon.svg` and
+  `assets/feathermode-icon.png` (social preview) are the mark on the dark ground.
+- The wordmark island is the lockup and collapses to the mark on scroll or after the title scene.
+
+## Content notes
+
+- The Mission and principles text is the original motuALIS copy with the company name changed. The hero
+  eyebrow, Platforms copy, Writing rows and Contact line are new copy to review.
+- Email addresses and the newsletter sign-up still use `hello@motualis.com`, and the sign-up is only a
+  `mailto:` link.
+- Analytics: none (motuALIS's Fathom script was not carried over).
+
+## To do
+
+- [ ] Set a Feathermode email address and replace the `mailto:` newsletter link with a real list and form.
+- [ ] Give the communication app and the distribution platform final names and domains, then link them from
+  the Platforms scene and the family island.
+- [ ] Check trademarks and domains for Common Tongue and Airlift.
+- [ ] Replace the Oofytronic link (`oofytronic-site.vercel.app`, the repo's recorded address) with its real domain.
+- [ ] Spin up Nimbus Nectar and link it from the family island and the Writing scene.
+- [ ] Move `communication/` into its own repository (`git subtree split --prefix=communication` keeps its
+  history), then remove it from here.
+- [ ] Decide whether to add analytics.
+- [ ] Try the stage on real phones and tablets.
+- [ ] Share the design-system code between the sites instead of keeping copies.

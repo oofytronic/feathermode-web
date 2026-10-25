@@ -1,0 +1,79 @@
+/* Design tokens — every colour, size and space lives here.
+   Same system as oofytronic (see design.md); only the palette, face and brand gradient differ. */
+:root {
+  /* Palette — the motuALIS brand colours, with deeper slates derived from the brand dark (#333F54) */
+  --slate-950: #0c1018;
+  --slate-900: #121723;
+  --slate-800: #1a2130;
+  --slate-700: #252e41;
+  --slate-600: #333f54; /* brand dark */
+  --slate-400: #8a96ac;
+  --light-300: #c9d1e0;
+  --light-100: #f9fbff; /* brand light */
+  --violet-500: #7b0fff; /* brand primary */
+  --blue-500: #177efe; /* brand secondary */
+  --cyan-400: #00deff; /* brand tertiary */
+
+  /* Semantic roles */
+  --bg: var(--slate-950);
+  --surface: var(--slate-900);
+  --surface-hover: var(--slate-800);
+  --text: var(--light-100);
+  --text-soft: var(--light-300);
+  --text-muted: var(--slate-400);
+  --accent: var(--cyan-400);
+  --hairline: color-mix(in srgb, var(--light-100) 12%, transparent);
+  --hairline-strong: color-mix(in srgb, var(--light-100) 24%, transparent);
+
+  /* The brand gradient: decoration only (violet is too dark to carry text) */
+  --brand-gradient: linear-gradient(135deg, var(--violet-500) 10%, var(--blue-500) 50%, var(--cyan-400));
+  --action-gradient: linear-gradient(135deg, var(--cyan-400), var(--blue-500)); /* dark text stays above 4.9:1 */
+
+  /* Type — one family, self-hosted */
+  --font-display: "Urbanist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-ui: "Urbanist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-text: "Urbanist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --step--2: 0.74rem;
+  --step--1: 0.86rem;
+  --step-0: 1.05rem;
+  --step-1: clamp(1.2rem, 1.12rem + 0.35vw, 1.4rem);
+  --step-2: clamp(1.55rem, 1.35rem + 0.8vw, 2rem);
+  --step-3: clamp(2.1rem, 1.65rem + 2.2vw, 3.2rem);
+  --step-4: clamp(2.8rem, 1.8rem + 5vw, 5.5rem);
+
+  /* Space */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.5rem;
+  --space-6: 4rem;
+  --space-7: 7rem;
+
+  /* Shape & motion */
+  --radius: 0.375rem; /* corners are slightly rounded here (oofytronic uses square or notched corners) */
+  --radius-lg: 0.5rem;
+  --measure: 40rem;
+  --measure-wide: 48rem;
+  --wrap: 80rem;
+  --gutter: 0rem; /* side room reserved for the gutter zones (wide screens only) */
+  --zone-w: 13rem; /* width of an island in a gutter zone */
+  --zone-edge: max(var(--space-4), calc((100% - var(--wrap)) / 2)); /* viewport edge to wrap edge */
+  --zone-top: calc(var(--space-3) + var(--island-h) + var(--space-2)); /* just beneath the header islands */
+  --section-space: clamp(5rem, 16vh, 9rem);
+  --track-caps: 0.16em;
+  --header-h: 4.75rem;
+  --island-h: 2.75rem;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --speed: 240ms;
+  --stage-pad: var(--space-4); /* left padding of a scene; wide screens clear the scene list (see below) */
+  --stage-pad-right: var(--space-4);
+  --scene-speed: 560ms; /* stage transitions between scenes */
+  --scene-ease: cubic-bezier(0.65, 0, 0.25, 1);
+}
+
+@media (min-width: 70rem) {
+  :root { --gutter: 14rem; --stage-pad: calc(var(--zone-w) + var(--zone-edge) + var(--space-4)); --stage-pad-right: var(--space-6); }
+}
