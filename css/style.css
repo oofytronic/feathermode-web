@@ -241,3 +241,9 @@ html[data-scenes] { transition: --g1 600ms var(--ease), --g2 600ms var(--ease), 
   html[data-scenes] .scene__lede { font-size: 0.9rem; }
   html[data-scenes] .scene h1, html[data-scenes] .scene h2 { font-size: min(2.4rem, 8.5vh); }
 }
+
+/* With a mouse and the nav along the top, a scene is only showing while its link is hovered, and clicking the
+   link goes where the scene's button would, so the button is dropped. Touch and the phone drawer keep it. */
+@media (hover: hover) and (min-width: 50.0625rem) {
+  .scene:not(.scene--home) .scene__cta:has(.button) { display: none; }
+}

@@ -18,6 +18,9 @@ parent's front door. It follows the **Oofytronic design system** (see `oofytroni
     Clicking it returns to the welcome scene.
   - **Touch.** There is no hover, so the first tap on an item shows its scene and a second tap (or the button
     in the scene) follows the link.
+  - **Buttons.** Scenes for Updates and Oofytronic have a button to the site, but only on touch and in the phone
+    drawer. With a mouse and the nav along the top the scene is only showing while its link is hovered and
+    clicking the link goes to the same place, so the button is hidden there.
   - Without JavaScript the scenes are an ordinary stacked, scrolling page and the nav links jump to them.
     `#common-tongue` etc. deep-link to a scene.
   - Below 50rem the nav no longer fits beside the logo, so the header becomes a slim bar along the bottom:
