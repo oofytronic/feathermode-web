@@ -197,3 +197,8 @@ html[data-scenes] { transition: --g1 600ms var(--ease), --g2 600ms var(--ease), 
 .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-1) var(--space-4); }
 .site-footer a { color: var(--text-soft); }
 @media (max-width: 40rem) { .site-footer .wrap { justify-content: center; text-align: center; } }
+
+/* Phones: the footer and the nav bar make a heavy block at the bottom, so lift the scene's centre a little */
+@media (max-width: 50rem) and (min-height: 44rem) {
+  html[data-scenes] .scene { padding-bottom: clamp(0.5rem, 6vh, 3.5rem); }
+}
