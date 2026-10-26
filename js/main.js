@@ -44,8 +44,9 @@ const initScenes = () => {
       const inPage = new URL(link.href, location.href).pathname === location.pathname && link.hash;
       const home = id === "home";
       // A page that leaves this site goes straight there with a pointer; on touch the first tap shows the scene.
+      // In the narrow drawer a link only chooses the scene; the scene's own button goes on to the site.
       const firstTap = isHoverless() && state.pinned !== id && !home;
-      if (inPage || home || firstTap) {
+      if (inPage || home || firstTap || isNarrow()) {
         event.preventDefault();
         history.replaceState(null, "", home ? location.pathname : link.hash || location.pathname);
         update({ pinned: id, preview: null });
@@ -67,17 +68,32 @@ const pinToTop = () => {
   reset();
 };
 
-// ---------- Bottom bar height ----------
-// On narrow screens the header is a fixed bar; tell the layout exactly how tall it is so nothing hides behind it.
-const fitBar = () => {
+// ---------- Drawer (narrow screens) ----------
+// Below 50rem the nav is a drawer that slides up from the bottom bar. The button toggles it; Escape, a click
+// outside, or choosing a link puts it away.
+const NARROW = "(max-width: 50rem)";
+const isNarrow = () => window.matchMedia(NARROW).matches;
+const setDrawer = (toggle, open) => {
+  root.toggleAttribute("data-drawer-open", open);
+  toggle.setAttribute("aria-expanded", String(open));
+  toggle.setAttribute("aria-label", open ? "Close the menu" : "Open the menu");
+};
+const initDrawer = () => {
+  const toggle = $(".drawer-toggle");
   const header = $(".site-header");
-  if (!header) return;
-  const measure = () => {
-    const fixed = getComputedStyle(header).position === "fixed";
-    fixed ? root.style.setProperty("--bar-h", `${header.offsetHeight}px`) : root.style.removeProperty("--bar-h");
-  };
-  new ResizeObserver(measure).observe(header);
-  measure();
+  if (!toggle || !header) return;
+  toggle.hidden = false;
+  const isOpen = () => root.hasAttribute("data-drawer-open");
+  const close = () => setDrawer(toggle, false);
+  toggle.addEventListener("click", () => setDrawer(toggle, !isOpen()));
+  document.addEventListener("click", (event) => isOpen() && !header.contains(event.target) && close());
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !isOpen()) return;
+    close();
+    toggle.focus();
+  });
+  $$(".site-nav a").forEach((link) => link.addEventListener("click", close));
+  window.matchMedia(NARROW).addEventListener("change", close);
 };
 
 // ---------- Footer year ----------
@@ -85,5 +101,5 @@ const initYear = () => $$("[data-year]").forEach((el) => { el.textContent = new 
 
 initScenes();
 pinToTop();
-fitBar();
+initDrawer();
 initYear();

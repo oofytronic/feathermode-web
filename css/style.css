@@ -84,34 +84,55 @@ html[data-scene]:not([data-scene="home"]) .wordmark__icon { opacity: 1; }
 .site-nav a[aria-current] { color: var(--accent); }
 .site-nav a:focus-visible { outline-offset: -2px; }
 
-/* Below 50rem the nav no longer fits beside the logo, so the whole header becomes a bar along the bottom:
-   the logo on top, the nav beneath it. */
+/* The drawer button only exists on narrow screens with JavaScript */
+.drawer-toggle { display: none; }
+.drawer-toggle__chevron { width: 0.6rem; height: 0.6rem; border-left: 1.5px solid currentColor; border-top: 1.5px solid currentColor; transform: translateY(2px) rotate(45deg); transition: transform var(--speed) var(--ease); }
+
+/* Below 50rem the nav no longer fits beside the logo. Without JavaScript it simply wraps under the logo.
+   With JavaScript the header becomes a slim bar along the bottom: logo on the left, an up-arrow button on the
+   right that slides the links up as a drawer, and a down arrow to put them away again. */
 @media (max-width: 50rem) {
-  :root { --bar-h: 8.5rem; }
-  .site-header {
+  .site-header .wrap { grid-template-columns: 1fr; gap: var(--space-2); height: auto; padding-block: var(--space-3); }
+  .site-header .site-nav { justify-self: start; flex-wrap: wrap; }
+  .site-nav__group { flex-wrap: wrap; }
+  .site-nav__group + .site-nav__group { margin: 0; padding: 0; border: 0; }
+
+  html[data-js] { --bar-h: 3.5rem; }
+  html[data-js] body { padding-bottom: var(--bar-h); }
+  html[data-js] .site-header {
     position: fixed; z-index: 45; inset: auto 0 0 0;
     padding-bottom: env(safe-area-inset-bottom);
-    background: color-mix(in srgb, var(--bg) 90%, transparent); border-top: 1px solid var(--hairline-strong);
+    background: color-mix(in srgb, var(--bg) 92%, transparent); border-top: 1px solid var(--hairline-strong);
     -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   }
-  .site-header .wrap { display: flex; flex-direction: column; align-items: center; gap: 0; height: auto; padding-block: var(--space-2); }
-  .wordmark { justify-self: center; place-items: center; }
-  .wordmark__logo, .wordmark__icon { height: 1.35rem; }
-  .site-header .site-nav { flex-direction: column; align-items: center; gap: 2px; justify-self: center; }
-  .site-nav__group { flex-wrap: wrap; justify-content: center; }
-  .site-nav__group + .site-nav__group { margin: 0; padding: 0; border: 0; }
-  .site-nav a { padding: var(--space-2) 0.45rem; }
-  body { padding-bottom: var(--bar-h); }
+  html[data-js] .site-header .wrap { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); height: 3.5rem; padding-block: 0; }
+  html[data-js] .wordmark__logo, html[data-js] .wordmark__icon { height: 1.4rem; }
+  html[data-js] .drawer-toggle {
+    display: inline-grid; place-items: center; width: 2.75rem; height: 2.75rem; padding: 0; cursor: pointer;
+    color: var(--text-soft); background: none; border: 1px solid var(--hairline-strong); border-radius: var(--radius);
+    transition: color var(--speed), background var(--speed) var(--ease);
+  }
+  html[data-js] .drawer-toggle:hover, html[data-js][data-drawer-open] .drawer-toggle { color: var(--accent); }
+  html[data-js][data-drawer-open] .drawer-toggle__chevron { transform: translateY(-2px) rotate(225deg); }
+  html[data-js] .drawer-toggle:focus-visible { outline-offset: 2px; }
+
+  html[data-js] .site-header .site-nav {
+    position: absolute; left: 0; right: 0; bottom: 100%; z-index: -1;
+    display: grid; gap: var(--space-3); align-items: start; justify-self: stretch;
+    max-height: calc(100dvh - 3.5rem - var(--space-4)); overflow-y: auto;
+    padding: var(--space-3) var(--space-4) var(--space-4);
+    background: var(--surface); border-top: 1px solid var(--hairline-strong);
+    opacity: 0; visibility: hidden; transform: translateY(1.5rem);
+    transition: opacity var(--speed) var(--ease), transform var(--speed) var(--ease), visibility 0s linear var(--speed);
+  }
+  html[data-js][data-drawer-open] .site-header .site-nav { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+  html[data-js] .site-nav__group { display: grid; gap: 0; }
+  html[data-js] .site-nav__group::before { content: attr(data-label); padding-bottom: var(--space-1); font-size: var(--step--2); font-weight: 600; letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--text-muted); }
+  html[data-js] .site-nav a { padding: var(--space-3) var(--space-2); font-size: var(--step-0); border-top: 1px solid var(--hairline); border-radius: 0; }
+  html[data-js] .site-nav__group + .site-nav__group { margin: 0; }
 }
-@media (max-width: 23rem) { .site-nav a { padding-inline: 0.3rem; font-size: 0.72rem; } }
-/* Short narrow screens: logo and nav share one slim row, and the footer line goes */
-@media (max-width: 50rem) and (max-height: 34rem) {
-  :root { --bar-h: 3.5rem; }
-  .site-header .wrap { flex-direction: row; justify-content: center; gap: var(--space-3); padding-block: 0.25rem; }
-  .site-header .site-nav { flex-direction: row; }
-  .site-nav__group + .site-nav__group { margin-left: var(--space-2); padding-left: var(--space-2); border-left: 1px solid var(--hairline-strong); }
-  .site-footer { display: none; }
-}
+@media (max-width: 50rem) and (max-height: 34rem) { html[data-js] .site-footer { display: none; } }
+@media (prefers-reduced-motion: reduce) { .drawer-toggle__chevron, html[data-js] .site-header .site-nav { transition: none !important; } }
 
 /* ---------- Scenes ----------
    Baseline (no JavaScript): the scenes are ordinary stacked sections.
@@ -213,4 +234,10 @@ html[data-scenes] { transition: --g1 600ms var(--ease), --g2 600ms var(--ease), 
 /* Phones: the header is a fixed bar and out of the grid, so the grid is just the scene and the footer */
 @media (max-width: 50rem) {
   html[data-scenes] body { grid-template-rows: minmax(0, 1fr) auto; }
+}
+
+/* Very small phones (320x568): trim the welcome text a little */
+@media (max-width: 40rem) and (max-height: 36rem) {
+  html[data-scenes] .scene__lede { font-size: 0.9rem; }
+  html[data-scenes] .scene h1, html[data-scenes] .scene h2 { font-size: min(2.4rem, 8.5vh); }
 }

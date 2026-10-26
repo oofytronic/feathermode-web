@@ -17,6 +17,7 @@
   <meta property="og:description" content="Feathermode is designing, developing and researching ways to make technology, the World Wide Web, and humanity's stories more accessible and without boundaries.">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="stylesheet" href="../css/style.css">
+  <script>document.documentElement.setAttribute('data-js','')</script>
   <script src="../js/main.js" defer></script>
 </head>
 <body>
@@ -27,12 +28,13 @@
       <img class="wordmark__logo" src="../assets/feathermode_logo-light.svg" alt="" width="1440" height="272">
       <img class="wordmark__icon" src="../assets/feathermode-icon-light.svg" alt="" width="250" height="268">
     </a>
-    <nav class="site-nav" aria-label="Primary">
-      <ul class="site-nav__group" aria-label="Platforms">
+    <button type="button" class="drawer-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open the menu" hidden><span class="drawer-toggle__chevron" aria-hidden="true"></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <ul class="site-nav__group" aria-label="Platforms" data-label="Platforms">
         <li><a href="../#common-tongue" data-scene="common-tongue">Common Tongue</a></li>
         <li><a href="../#airlift" data-scene="airlift">Airlift</a></li>
       </ul>
-      <ul class="site-nav__group" aria-label="Writing">
+      <ul class="site-nav__group" aria-label="Writing" data-label="Writing">
         <li><a href="../#nimbus-nectar" data-scene="nimbus-nectar">Nimbus Nectar</a></li>
         <li><a href="./" data-scene="updates" aria-current="page">Feathermode Updates</a></li>
         <li><a href="https://oofytronic-site.vercel.app" data-scene="oofytronic" target="_blank" rel="noopener">Oofytronic<span class="visually-hidden"> (opens another site)</span></a></li>
