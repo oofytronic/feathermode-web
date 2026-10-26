@@ -84,24 +84,31 @@ html[data-scene]:not([data-scene="home"]) .wordmark__icon { opacity: 1; }
 .site-nav a[aria-current] { color: var(--accent); }
 .site-nav a:focus-visible { outline-offset: -2px; }
 
-/* Below 50rem the nav no longer fits beside the logo, so it becomes a bar along the bottom */
+/* Below 50rem the nav no longer fits beside the logo, so the whole header becomes a bar along the bottom:
+   the logo on top, the nav beneath it. */
 @media (max-width: 50rem) {
-  .site-header .site-nav {
-    justify-self: stretch; position: fixed; z-index: 45; inset: auto 0 0 0; flex-direction: column; align-items: center; gap: 2px;
-    padding: var(--space-2) var(--space-3) calc(var(--space-2) + env(safe-area-inset-bottom));
+  :root { --bar-h: 8.5rem; }
+  .site-header {
+    position: fixed; z-index: 45; inset: auto 0 0 0;
+    padding-bottom: env(safe-area-inset-bottom);
     background: color-mix(in srgb, var(--bg) 90%, transparent); border-top: 1px solid var(--hairline-strong);
     -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   }
+  .site-header .wrap { display: flex; flex-direction: column; align-items: center; gap: 0; height: auto; padding-block: var(--space-2); }
+  .wordmark { justify-self: center; place-items: center; }
+  .wordmark__logo, .wordmark__icon { height: 1.35rem; }
+  .site-header .site-nav { flex-direction: column; align-items: center; gap: 2px; justify-self: center; }
   .site-nav__group { flex-wrap: wrap; justify-content: center; }
   .site-nav__group + .site-nav__group { margin: 0; padding: 0; border: 0; }
   .site-nav a { padding: var(--space-2) 0.45rem; }
   body { padding-bottom: var(--bar-h); }
 }
-@media (max-width: 23rem) { .site-nav a { padding-inline: 0.35rem; font-size: 0.78rem; } }
-/* Short landscape screens: one slim row for the nav, a slimmer header, no footer line */
+@media (max-width: 23rem) { .site-nav a { padding-inline: 0.3rem; font-size: 0.72rem; } }
+/* Short narrow screens: logo and nav share one slim row, and the footer line goes */
 @media (max-width: 50rem) and (max-height: 34rem) {
-  :root { --header-h: 3.25rem; --bar-h: 3.25rem; }
-  .site-header .site-nav { flex-direction: row; justify-content: center; padding-block: 0.25rem; }
+  :root { --bar-h: 3.5rem; }
+  .site-header .wrap { flex-direction: row; justify-content: center; gap: var(--space-3); padding-block: 0.25rem; }
+  .site-header .site-nav { flex-direction: row; }
   .site-nav__group + .site-nav__group { margin-left: var(--space-2); padding-left: var(--space-2); border-left: 1px solid var(--hairline-strong); }
   .site-footer { display: none; }
 }
@@ -148,7 +155,7 @@ html[data-scene="airlift"] { --g1: var(--blue-500); --g2: var(--cyan-400); --gx:
 html[data-scene="nimbus-nectar"] { --g1: var(--violet-500); --g2: #d6479b; --gx: 35%; }
 html[data-scene="updates"] { --g1: var(--cyan-400); --g2: var(--violet-500); --gx: 65%; }
 html[data-scene="oofytronic"] { --g1: #c9a35a; --g2: var(--violet-500); --gx: 50%; }
-html[data-scenes] { background: var(--bg); }
+html[data-scenes] { background: var(--bg); overflow: hidden; overscroll-behavior: none; }
 html[data-scenes] body {
   background:
     radial-gradient(55% 60% at var(--gx) -5%, color-mix(in srgb, var(--g1) 36%, transparent), transparent 72%),
@@ -201,4 +208,9 @@ html[data-scenes] { transition: --g1 600ms var(--ease), --g2 600ms var(--ease), 
 /* Phones: the footer and the nav bar make a heavy block at the bottom, so lift the scene's centre a little */
 @media (max-width: 50rem) and (min-height: 44rem) {
   html[data-scenes] .scene { padding-bottom: clamp(0.5rem, 6vh, 3.5rem); }
+}
+
+/* Phones: the header is a fixed bar and out of the grid, so the grid is just the scene and the footer */
+@media (max-width: 50rem) {
+  html[data-scenes] body { grid-template-rows: minmax(0, 1fr) auto; }
 }

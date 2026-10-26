@@ -58,8 +58,32 @@ const initScenes = () => {
   window.addEventListener("hashchange", () => update({ pinned: knownOr(ids, "home")(location.hash.slice(1)) }));
 };
 
+// ---------- Keep the one-screen page at the top ----------
+// The page never scrolls; if a browser moves it anyway (focus, bars sliding in and out), put it back.
+const pinToTop = () => {
+  if (!root.hasAttribute("data-scenes")) return;
+  const reset = () => window.scrollY && window.scrollTo(0, 0);
+  window.addEventListener("scroll", reset, { passive: true });
+  reset();
+};
+
+// ---------- Bottom bar height ----------
+// On narrow screens the header is a fixed bar; tell the layout exactly how tall it is so nothing hides behind it.
+const fitBar = () => {
+  const header = $(".site-header");
+  if (!header) return;
+  const measure = () => {
+    const fixed = getComputedStyle(header).position === "fixed";
+    fixed ? root.style.setProperty("--bar-h", `${header.offsetHeight}px`) : root.style.removeProperty("--bar-h");
+  };
+  new ResizeObserver(measure).observe(header);
+  measure();
+};
+
 // ---------- Footer year ----------
 const initYear = () => $$("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
 
 initScenes();
+pinToTop();
+fitBar();
 initYear();

@@ -20,8 +20,9 @@ parent's front door. It follows the **Oofytronic design system** (see `oofytroni
     in the scene) follows the link.
   - Without JavaScript the scenes are an ordinary stacked, scrolling page and the nav links jump to them.
     `#common-tongue` etc. deep-link to a scene.
-  - Below 50rem the nav no longer fits beside the logo, so it becomes a bar along the bottom (two rows on
-    phones, one slim row on short landscape screens).
+  - Below 50rem the nav no longer fits beside the logo, so the whole header becomes a bar along the bottom
+    (logo on top, nav beneath; one slim row on short landscape screens). Its height is measured in
+    `js/main.js` (`fitBar`) so the page leaves exactly that much room.
 - `/principles/` — the mission and the four principles, as a scrolling page (long-form text).
 - `/updates/` — Feathermode Updates, the newsletter page. No posts yet; subscribing is a `mailto:` link.
 - `/communication/` — the **previous Feathermode site, moved here unchanged**. It is a placeholder: the
