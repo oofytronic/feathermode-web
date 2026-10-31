@@ -2,6 +2,14 @@
 
 Commit hashes are on `trunk`. The Oct 2026 work was one extended session across four sites.
 
+## Product renames (31 Oct 2026)
+
+- **Common Tongue became Aerodash** and is now described as an *everything app* (communication first), not just a
+  communication app. **Airlift became Gondola**, and is described as a mini-app that rides inside Aerodash. Scene ids
+  and links changed (`#aerodash`, `#gondola`). Names were weighed against many alternatives (wind, sky, airship,
+  castle-in-the-sky, feather-anatomy systems); Aerodash and Gondola were chosen by the owner. Both are still unchecked
+  for trademarks and domains. Earlier entries below use the old names.
+
 ## The launchpad site (25 to 27 Oct 2026)
 
 - `66de238` The welcome scene is visible from first paint (no flash before the script runs).

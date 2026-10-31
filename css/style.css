@@ -171,8 +171,8 @@ html[data-scenes] .scene.is-active { opacity: 1; visibility: visible; transform:
 @property --g2 { syntax: "<color>"; inherits: true; initial-value: #177efe; }
 @property --gx { syntax: "<percentage>"; inherits: true; initial-value: 50%; }
 html { --g1: var(--violet-500); --g2: var(--blue-500); --gx: 50%; }
-html[data-scene="common-tongue"] { --g1: var(--cyan-400); --g2: var(--blue-500); --gx: 20%; }
-html[data-scene="airlift"] { --g1: var(--blue-500); --g2: var(--cyan-400); --gx: 80%; }
+html[data-scene="aerodash"] { --g1: var(--cyan-400); --g2: var(--blue-500); --gx: 20%; }
+html[data-scene="gondola"] { --g1: var(--blue-500); --g2: var(--cyan-400); --gx: 80%; }
 html[data-scene="nimbus-nectar"] { --g1: var(--violet-500); --g2: #d6479b; --gx: 35%; }
 html[data-scene="updates"] { --g1: var(--cyan-400); --g2: var(--violet-500); --gx: 65%; }
 html[data-scene="oofytronic"] { --g1: #c9a35a; --g2: var(--violet-500); --gx: 50%; }

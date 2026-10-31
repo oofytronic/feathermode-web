@@ -2,7 +2,7 @@
 
 This folder is **the previous Feathermode website, moved here unchanged** on 25 Oct 2026 when Feathermode became
 the parent site. It is a placeholder for a future repository: the communication / "everything" app platform
-(working name **Common Tongue**) will get its own repo, and this folder is the seed.
+(working name **Aerodash**) will get its own repo, and this folder is the seed.
 
 What it contains: a single-page pitch for a user-owned writing and self-publishing platform in a parchment
 palette (Crimson Pro and DM Sans), with its own `css/style.css` and `js/main.js` that use only relative paths. It

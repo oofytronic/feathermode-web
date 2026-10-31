@@ -13,7 +13,7 @@ owns Basecamp and HEY: each product has its own domain and look; this site is th
 The home page is **one screen that never scrolls.** The logo is top left and the nav is top right
 (a slide-up drawer on phones):
 
-- **Platforms:** Common Tongue, Airlift
+- **Platforms:** Aerodash (the everything app), Gondola (distribution, a mini-app inside Aerodash)
 - **Writing:** Nimbus Nectar, Feathermode Updates, Oofytronic
 
 Each nav item has a **scene**. Hover (or keyboard-focus) a link and its scene appears; move away and the welcome
@@ -54,7 +54,7 @@ AGENTS.md             notes for AI agents / new contributors
 ## How the home page works
 
 - Scenes are `<section class="scene">` elements inside `<main class="scenes">`. The scene ids are `home`,
-  `common-tongue`, `airlift`, `nimbus-nectar`, `updates`, `oofytronic`. Every nav link carries
+  `aerodash`, `gondola`, `nimbus-nectar`, `updates`, `oofytronic`. Every nav link carries
   `data-scene="<id>"`; the logo is `data-scene="home"`.
 - `html[data-scenes]` (set by an inline script in `<head>`) switches the stacked, scrolling baseline into the
   one-screen layout; `html[data-scene]` names the scene being shown; inactive scenes are `inert` and
@@ -94,7 +94,7 @@ when asked for.
 - The family dropdown is **not** on this site (the nav is the family); it lives on the child sites.
 - `communication/` is publicly reachable and still carries the old publishing pitch. It is untouched on purpose.
 - No analytics. The Oofytronic link uses its Vercel address until it has a real domain.
-- Names (Common Tongue, Airlift, Nimbus Nectar) are working names; trademarks and domains are unchecked.
+- Names (Aerodash, Gondola, Nimbus Nectar) are working names; trademarks and domains are unchecked.
 - Tested only in headless Chromium (hover, tap emulation, sizes 320 to 1920 wide); not on real devices.
 
 See `design.md` for the to-do list and `HISTORY.md` for how the site got here.

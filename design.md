@@ -9,11 +9,11 @@ parent's front door. It follows the **Oofytronic design system** (see `oofytroni
 
 - `/` — **one screen that never scrolls.** The header has the Feathermode logo on the left and the nav on
   the right. There is no family dropdown on this site: the nav is the family. The dropdown lives on the child
-  sites (Oofytronic, and the products as they appear). The nav has two groups: **Platforms** (Common Tongue, Airlift)
+  sites (Oofytronic, and the products as they appear). The nav has two groups: **Platforms** (Aerodash, Gondola)
   and **Writing** (Nimbus Nectar, Feathermode Updates, Oofytronic), in that order.
   - Every nav item has a **scene**. Hovering (or keyboard-focusing) an item shows its scene; moving away
     returns to the welcome scene. Clicking goes to that item's site or page. Items with no site yet
-    (Common Tongue, Airlift, Nimbus Nectar) have scenes that say so, and a click keeps that scene showing.
+    (Aerodash, Gondola, Nimbus Nectar) have scenes that say so, and a click keeps that scene showing.
   - The logo is the full lockup on the welcome scene and just the mark (no box) on every other scene.
     Clicking it returns to the welcome scene.
   - **Touch.** There is no hover, so the first tap on an item shows its scene and a second tap (or the button
@@ -22,7 +22,7 @@ parent's front door. It follows the **Oofytronic design system** (see `oofytroni
     drawer. With a mouse and the nav along the top the scene is only showing while its link is hovered and
     clicking the link goes to the same place, so the button is hidden there.
   - Without JavaScript the scenes are an ordinary stacked, scrolling page and the nav links jump to them.
-    `#common-tongue` etc. deep-link to a scene.
+    `#aerodash` etc. deep-link to a scene.
   - Below 50rem the nav no longer fits beside the logo, so the header becomes a slim bar along the bottom:
     the logo on the left and an up-arrow button on the right. The button slides the links up as a drawer
     (Platforms and Writing, one per row); it turns into a down arrow, which puts the drawer away again, as do
@@ -31,7 +31,7 @@ parent's front door. It follows the **Oofytronic design system** (see `oofytroni
 - `/principles/` — the mission and the four principles, as a scrolling page (long-form text).
 - `/updates/` — Feathermode Updates, the newsletter page. No posts yet; subscribing is a `mailto:` link.
 - `/communication/` — the **previous Feathermode site, moved here unchanged**. It is a placeholder: the
-  communication / everything-app platform will get its own repository, and this folder is what will seed it.
+  communication / everything-app platform (Aerodash) will get its own repository, and this folder is what will seed it.
   It still describes the old publishing pitch and still calls itself "Feathermode". It is publicly reachable
   at `/communication/` until it moves out and is no longer linked from the site. Do not edit it here unless
   that is deliberate.
@@ -46,8 +46,8 @@ lists the members. Its member list is hand-maintained markup in each site; a sha
 | Member | Kind | Status |
 | --- | --- | --- |
 | **Feathermode** | Parent | Live (this site) |
-| **Common Tongue** | Communication app | Exploration; own domain to come (working name) |
-| **Airlift** | Distribution | In development; own domain to come (working name) |
+| **Aerodash** | Everything app (communication first) | Exploration; own domain to come (working name) |
+| **Gondola** | Distribution; a mini-app inside Aerodash | In development; own domain to come (working name) |
 | **Oofytronic** | Personal blog | Live (separate repository) |
 | **Nimbus Nectar** | Publication from Feathermode | Not live; to be spun up |
 
@@ -81,7 +81,7 @@ Penna and Flight Log.
 - [ ] Make sure `hello@feathermode.com` receives mail, and replace the `mailto:` newsletter link with a real list and form.
 - [ ] Give the communication app and the distribution platform final names and domains, then link them from
   their nav items and the child sites' family dropdowns (their scenes currently say "to be announced").
-- [ ] Check trademarks and domains for Common Tongue and Airlift.
+- [ ] Check trademarks and domains for Aerodash and Gondola.
 - [ ] Replace the Oofytronic link (`oofytronic-site.vercel.app`, the repo's recorded address) with its real domain.
 - [ ] Spin up Nimbus Nectar and link it from its nav item and the child sites' family dropdowns.
 - [ ] Move `communication/` into its own repository (`git subtree split --prefix=communication` keeps its
